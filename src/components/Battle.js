@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 function PlayerPreview (props) {
 	return (
@@ -108,6 +109,9 @@ class Battle extends Component {
 	}
 
 	render() {
+
+		const match = this.props.match;
+
 		const playerOneName = this.state.playerOneName;
 		const playerTwoName = this.state.playerTwoName;
 		const playerOneImage = this.state.playerOneImage;
@@ -143,6 +147,17 @@ class Battle extends Component {
 							onReset={this.handleReset}
 							id='playerTwo' />}
 				</div>
+
+				{playerOneImage && playerTwoImage &&
+					<Link
+						className='button'
+						to={{
+							pathname: match.url + '/results',
+						}}>
+					Battle
+					</Link>
+				}
+
 			</div>
 		)
 	}
