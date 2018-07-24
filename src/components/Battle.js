@@ -153,6 +153,7 @@ class Battle extends Component {
 						className='button'
 						to={{
 							pathname: match.url + '/results',
+							search: `?playerOneName=${playerOneName}&playerTwoName=${playerTwoName}`
 						}}>
 					Battle
 					</Link>
