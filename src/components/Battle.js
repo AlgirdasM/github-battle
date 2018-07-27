@@ -18,7 +18,7 @@ class PlayerInput extends Component {
 		this.props.onSubmit(
 			this.props.id,
 			this.state.username
-		)
+		);
 	}
 
 	render() {
@@ -77,13 +77,11 @@ class Battle extends Component {
 			newState[id + 'Name'] = '';
 			newState[id + 'Image'] = null
 			return newState;
-		})		
+		});
 	}
 
 	render() {
-
 		const match = this.props.match;
-
 		const playerOneName = this.state.playerOneName;
 		const playerTwoName = this.state.playerTwoName;
 		const playerOneImage = this.state.playerOneImage;
