@@ -63,13 +63,12 @@ class Battle extends Component {
 	}
 
 	handleSubmit = (id, username) => {
-	    this.setState(() => {
-	      let newState = {};
-	      newState[id + 'Name'] = username;
-	      newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200'
-	      return newState;
-	    });
-
+		this.setState(() => {
+			let newState = {};
+			newState[id + 'Name'] = username;
+			newState[id + 'Image'] = 'https://github.com/' + username + '.png?size=200'
+			return newState;
+		});
 	}
 
 	handleReset = (id) => {
@@ -98,17 +97,19 @@ class Battle extends Component {
 						<PlayerInput
 							id='playerOne'
 							label='Player One'
-							onSubmit={this.handleSubmit} />}
+							onSubmit={this.handleSubmit}
+						/>
+					}
 
 					{playerOneImage !== null &&
 						<PlayerPreview
 							avatar={playerOneImage}
 							username={playerOneName}>
-							<button
-								className='reset'
-								onClick={() => this.handleReset('playerOne')}>
-								Reset
-							</button>
+								<button
+									className='reset'
+									onClick={() => this.handleReset('playerOne')}>
+									Reset
+								</button>
 						</PlayerPreview>
 					}
 
@@ -116,17 +117,19 @@ class Battle extends Component {
 						<PlayerInput
 							id='playerTwo'
 							label='Player Two'
-							onSubmit={this.handleSubmit} />}
+							onSubmit={this.handleSubmit}
+						/>
+					}
 					
 					{playerTwoImage !== null &&
 						<PlayerPreview
 							avatar={playerTwoImage}
 							username={playerTwoName}>
-							<button
-								className='reset'
-								onClick={() => this.handleReset('playerTwo')}>
-								Reset
-							</button>
+								<button
+									className='reset'
+									onClick={() => this.handleReset('playerTwo')}>
+									Reset
+								</button>
 						</PlayerPreview>
 					}
 				</div>
@@ -141,7 +144,6 @@ class Battle extends Component {
 					Battle
 					</Link>
 				}
-
 			</div>
 		)
 	}

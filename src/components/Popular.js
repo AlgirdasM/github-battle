@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import api from '../utils/api';
+import { FetchPopularRepos } from '../utils/api';
 
 
 function SelectLanguage (props) {
@@ -32,7 +32,9 @@ function RepoGrid (props) {
 			{props.repos.map((repo, index) => {
 				return (
 					<li key={repo.id} className='popular-item'>
-						<div className='popular-rank'>#{index + 1}</div>
+						<div className='popular-rank'>
+							#{index + 1}
+						</div>
 						<ul className='space-list-items'>
 							<li>
 								<img className='avatar'
@@ -40,9 +42,15 @@ function RepoGrid (props) {
 									alt={`Avatar for ${repo.owner.login}`}
 								/>
 							</li>
-							<li> <a href={repo.html_url}>{repo.name}</a> </li>
-							<li>@{repo.owner.login}</li>
-							<li>{repo.stargazers_count} stars</li>
+							<li>
+								<a href={repo.html_url}>{repo.name}</a>
+							</li>
+							<li>
+								@{repo.owner.login}
+							</li>
+							<li>
+								{repo.stargazers_count} stars
+							</li>
 						</ul>
 					</li>
 				)
@@ -69,7 +77,7 @@ class Popular extends Component {
   	updateLanguage = (lang) => {
   		this.setState({selectedLanguage: lang, repos: null});
 
-  		api.fetchPopularRepos(lang)
+  		FetchPopularRepos(lang)
   			.then((repos) => this.setState({repos: repos}));
   	}
 

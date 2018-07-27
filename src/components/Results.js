@@ -1,23 +1,41 @@
 import React, { Component } from 'react';
 import queryString from 'query-string';
-import api from '../utils/api';
+import { Battle } from '../utils/api';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PlayerPreview from './PlayerPreview';
 
 function Profile(props) {
 	const info = props.info;
-	
+  
 	return (
 		<PlayerPreview avatar={info.avatar_url} username={info.login}>
 	      <ul className='space-list-items'>
-	        {info.name && <li>{info.name}</li>}
-	        {info.location && <li>{info.location}</li>}
-	        {info.company && <li>{info.company}</li>}
-	        <li>Followers: {info.followers}</li>
-	        <li>Following: {info.following}</li>
-	        <li>Public Repos: {info.public_repos}</li>
-	        {info.blog && <li><a href={info.blog}>{info.blog}</a></li>}
+	        {info.name &&
+	        	<li>
+	        		{info.name}
+	        	</li>}
+	        {info.location &&
+	        	<li>
+	        		{info.location}
+	        	</li>}
+	        {info.company &&
+	        	<li>
+	        		{info.company}
+	        	</li>}
+	        <li>
+	        	Followers: {info.followers}
+	        </li>
+	        <li>
+	        	Following: {info.following}
+	        </li>
+	        <li>
+	        	Public Repos: {info.public_repos}
+	        </li>
+	        {info.blog &&
+	        	<li>
+	        		<a href={info.blog}>{info.blog}</a>
+	        	</li>}
 	      </ul>			
 		</PlayerPreview>
 	)
@@ -26,8 +44,12 @@ function Profile(props) {
 function Player (props) {
 	return (
 		<div>
-			<h1 className='header'>{props.label}</h1>
-			<h3 style={{textAlign: 'center'}}>Score: {props.score}</h3>
+			<h1 className='header'>
+				{props.label}
+			</h1>
+			<h3 style={{textAlign: 'center'}}>
+				Score: {props.score}
+			</h3>
 			<Profile info={props.profile} />
 		</div>
 	)
@@ -49,7 +71,8 @@ class Results extends Component {
 
 	componentDidMount() {
 		const players = queryString.parse(this.props.location.search);
-		api.battle([
+
+		Battle([
 			players.playerOneName,
 			players.playerTwoName
 		]).then((results) => {
@@ -61,7 +84,7 @@ class Results extends Component {
 					}
 				});
 			} else {
-				this.setState(function(){
+				this.setState(() => {
 					return {
 						error: null,
 						winner: results[0],
@@ -70,10 +93,7 @@ class Results extends Component {
 					}
 				});
 			}
-
 		});
-
-
 	}
 
 	render() {

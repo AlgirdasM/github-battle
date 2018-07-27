@@ -1,7 +1,7 @@
-const axios = require('axios');
+import axios from 'axios';
 
-const id = 'aa';
-const secret = 'vv';
+const id = 'YOUR-ID';
+const secret = 'YOUR-SECRET-KEY';
 const params = `?client_id=${id}&client_secret=${secret}`;
 
 function getProfile(username) {
@@ -54,15 +54,14 @@ function getUserData(player) {
 	});
 }
 
-module.exports = {
-	battle: function (players) {
+export function Battle(players) {
 		return axios.all(players.map(getUserData))
 			.then(sortPlayers)
 			.catch(handleError)
-	},
-	fetchPopularRepos: function (language) {
+	}
+
+export function FetchPopularRepos(language) {
 		let encodedURI = window.encodeURI(`https://api.github.com/search/repositories?q=stars:>1+language:${language}&sort=stars&order=desc&type=Repositories`);
 
 		return axios.get(encodedURI).then((response) => response.data.items);
 	}
-}
