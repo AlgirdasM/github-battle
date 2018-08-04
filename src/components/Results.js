@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import queryString from 'query-string';
 import { Battle } from '../utils/api';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -71,7 +70,17 @@ class Results extends Component {
 	}
 
 	componentDidMount() {
-		const players = queryString.parse(this.props.location.search);
+		const regex = /[?&]([^=#]+)=([^&#]*)/g;
+        const url = this.props.location.search;
+        const players = {};
+        let match;
+
+        while((match = regex.exec(url)) !== null) {
+		    players[match[1]] = match[2];
+		}
+
+		console.log(players);
+
 
 		Battle([
 			players.playerOneName,

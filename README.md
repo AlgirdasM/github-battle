@@ -17,4 +17,4 @@ Please note this is just a fun game, not a real life simulator!
 * [prop-types](https://www.npmjs.com/package/prop-types)
 * [axios](https://github.com/axios/axios)
 * [GitHub](https://github.com)
-* [queryString](https://www.npmjs.com/package/query-string)
+* [Parse query parameters in Javascript, stackoverflow](https://stackoverflow.com/questions/8486099/how-do-i-parse-a-url-query-parameters-in-javascript)
