@@ -17,7 +17,7 @@ class App extends Component {
 					<Route exact path='/battle' component={Battle} />
 					<Route path='/battle/results' component={Results} />
 					<Route path='/popular' component={Popular} />
-					<Route render={() => <p>Not Found</p>} />
+					<Route render={() => <h1 className="notFound">Not Found</h1>} />
 				</Switch>
 			</div>
 		</BrowserRouter>

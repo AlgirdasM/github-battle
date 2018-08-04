@@ -23,7 +23,7 @@ class PlayerInput extends Component {
 
 	render() {
 		return (
-			<form className='column' onSubmit={this.handleSubmit}>
+			<form className='column padding' onSubmit={this.handleSubmit}>
 				<label className='header' htmlFor='username'>
 					{this.props.label}
 				</label>
@@ -88,8 +88,8 @@ class Battle extends Component {
 		const playerTwoImage = this.state.playerTwoImage;
 
 		return (
-			<div>
-				<div className='row'>
+			<div className="row">
+				<div className='player'>
 
 					{!playerOneName &&
 						<PlayerInput
@@ -110,7 +110,8 @@ class Battle extends Component {
 								</button>
 						</PlayerPreview>
 					}
-
+				</div>
+				<div className='player'>
 					{!playerTwoName &&
 						<PlayerInput
 							id='playerTwo'

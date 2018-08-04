@@ -44,7 +44,7 @@ function Profile(props) {
 
 function Player (props) {
 	return (
-		<div>
+		<div className="player">
 			<h1 className='header'>
 				{props.label}
 			</h1>

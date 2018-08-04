@@ -35,7 +35,8 @@ a {
 
 .container {
 	padding: 30px 0;
-	width: 1200px;
+	max-width: 100%;
+	padding: 10px;
 	margin: auto;
 	display: grid;
 }
@@ -44,12 +45,13 @@ a {
 	margin: 0;
 	padding: 0;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	font-weight: 700;
 }
 
 .languages li {
-	margin: 10px;
+	margin: 5px;
 	cursor: pointer;
 }
 
@@ -60,7 +62,7 @@ a {
 }
 
 .popular-item {
-	margin: 20px;
+	margin: 5px;
 	text-align: center;
 }
 
@@ -70,7 +72,9 @@ a {
 }
 
 .space-list-items {
+	width: 100%;
 	margin-bottom: 7px;
+	text-align: center;
 }
 
 .avatar {
@@ -80,10 +84,11 @@ a {
 
 .nav {
 	display: flex;
+	justify-content: center;
 }
 
 .nav li {
-	margin-right: 15px;
+	margin: 0 10px;
 }
 
 .active {
@@ -94,6 +99,11 @@ a {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.home-container h1 {
+	text-align: center;
+	line-height: 36px;
 }
 
 .button {
@@ -120,20 +130,32 @@ a {
 }
 
 .row {
+	width: 100%;
 	display: flex;
-	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.padding {
+	padding: 10px;
 }
 
 .column {
 	display: flex;
 	flex-direction: column;
-	width: 500px;
+	width: 100%;
+	align-items: center;
+}
+
+.player {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
 	align-items: center;
 }
 
 .column input {
 	border-radius: 3px;
-	margin: 10px 0;
+	margin: 30px 0;
 	padding: 5px;
 	border: 1px solid rgba(0, 0, 0, 0.43);
 	font-size: 16px;
@@ -163,4 +185,9 @@ a {
 
 .reset:hover {
 	cursor: pointer;
+}
+
+.notFound {
+	text-align: center;
+	font-weight: 500;
 }

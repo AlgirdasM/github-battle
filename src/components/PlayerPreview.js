@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function PlayerPreview (props) {
 	return (
-		<div>
+		<div className='row padding'>
 			<div className='column'>
 				<img className='avatar'
 					src={props.avatar}

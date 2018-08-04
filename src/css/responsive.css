@@ -1,0 +1,22 @@
+@media screen and (min-width: 450px) {
+
+}
+
+@media screen and (min-width: 600px) {
+#username {
+	width: 50%;
+}
+.popular-item {
+	margin: 15px;
+}
+.player {
+	width: 50%;
+}
+
+}
+
+@media screen and (min-width: 1000px) {
+.container {
+	width: 1000px;
+}
+}
