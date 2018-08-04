@@ -4,10 +4,14 @@ App displays the most popular repositories at GitHub. Also you can view the most
 You can battle between two Github users! Click on Battle link, submit two users and compare their strength :)
 Please note this is just a fun game, not a real life simulator!
 
+
 ## Run project
 1. Clone project to your computer
 2. Run 'npm install' to install dependencies
 3. Run `npm start` and it will open browser and serve app.
+
+## Visit project online
+[Click here to visit project online](https://github-battle.amfullstack.com/)
 
 ## Licenses and huge thank you
 * [Tyler McGinnis](https://tylermcginnis.com)
