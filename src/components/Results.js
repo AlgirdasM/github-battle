@@ -70,6 +70,7 @@ class Results extends Component {
 	}
 
 	componentDidMount() {
+		// regex to get players object
 		const regex = /[?&]([^=#]+)=([^&#]*)/g;
         const url = this.props.location.search;
         const players = {};
@@ -78,9 +79,6 @@ class Results extends Component {
         while((match = regex.exec(url)) !== null) {
 		    players[match[1]] = match[2];
 		}
-
-		console.log(players);
-
 
 		Battle([
 			players.playerOneName,
