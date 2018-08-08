@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom';
 import PlayerPreview from './PlayerPreview';
 
 class PlayerInput extends Component {
+	static propTypes = {
+		id: PropTypes.string.isRequired,
+		label: PropTypes.string.isRequired,
+		onSubmit: PropTypes.func.isRequired
+	}
+
+	static defaultProps = {
+		label: 'Username'
+	}
+
 	state = {
 		username: ''
 	}
@@ -50,11 +60,7 @@ class PlayerInput extends Component {
 	}
 }
 
-PlayerInput.protTypes = {
-	id: PropTypes.string.isRequired,
-	label: PropTypes.string.isRequired,
-	onSubmit: PropTypes.func.isRequired
-}
+
 
 
 class Battle extends Component {
