@@ -67,7 +67,32 @@ class Results extends Component {
 		loading: true
 	}
 
-	componentDidMount() {
+	async componentDidMount() {
+
+		const { playerOneName, playerTwoName } = this.parseString();
+
+		const players = await Battle([
+			playerOneName,
+			playerTwoName			
+		])
+
+		if(players === null) {
+			return this.setState(() => ({
+				error: 'Looks like there was error. Check that both users exist on Github',
+				loading: false
+			}));
+		}
+
+		const [winner, loser] = players;
+		this.setState(() => ({
+			error: null,
+			winner,
+			loser,
+			loading: false
+		}));
+	}
+
+	parseString = () => {
 		// regex to get players object
 		const regex = /[?&]([^=#]+)=([^&#]*)/g;
         const url = this.props.location.search;
@@ -78,24 +103,7 @@ class Results extends Component {
 		    players[match[1]] = match[2];
 		}
 
-		Battle([
-			players.playerOneName,
-			players.playerTwoName
-		]).then((results) => {
-			if(results === null) {
-				this.setState(() => ({
-					error: 'Looks like there was error. Check that both users exist on Github',
-					loading: false
-				}));
-			} else {
-				this.setState(() => ({
-					error: null,
-					winner: results[0],
-					loser: results[1],
-					loading: false
-				}));
-			}
-		});
+		return players;
 	}
 
 	render() {

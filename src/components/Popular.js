@@ -72,11 +72,11 @@ class Popular extends Component {
   		this.updateLanguage(this.state.selectedLanguage);
   	}
 
-  	updateLanguage = (lang) => {
+  	updateLanguage = async (lang) => {
   		this.setState(() => ({selectedLanguage: lang, repos: null}));
 
-  		FetchPopularRepos(lang)
-  			.then((repos) => this.setState(() => ({repos})));
+  		const repos = await FetchPopularRepos(lang);
+  		this.setState(() => ({repos}));
   	}
 
 	render() {
@@ -88,7 +88,7 @@ class Popular extends Component {
 					selectedLanguage={selectedLanguage}
 					onSelect={this.updateLanguage}
 				/>
-				
+
 				{repos 
 					? <RepoGrid repos={repos} />
 					: <Loading />
