@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 import PlayerPreview from './PlayerPreview';
 import Loading from './Loading';
 
-function Profile(props) {
-	const info = props.info;
-  
+function Profile({ info }) { 
 	return (
 		<PlayerPreview avatar={info.avatar_url} username={info.login}>
 	      <ul className='space-list-items'>
@@ -41,16 +39,16 @@ function Profile(props) {
 	)
 }
 
-function Player (props) {
+function Player ({ label, score, profile }) {
 	return (
 		<div className="player">
 			<h1 className='header'>
-				{props.label}
+				{label}
 			</h1>
 			<h3 style={{textAlign: 'center'}}>
-				Score: {props.score}
+				Score: {score}
 			</h3>
-			<Profile info={props.profile} />
+			<Profile info={profile} />
 		</div>
 	)
 }
@@ -85,30 +83,23 @@ class Results extends Component {
 			players.playerTwoName
 		]).then((results) => {
 			if(results === null) {
-				this.setState(() => {
-					return {
-						error: 'Looks like there was error. Check that both users exist on Github',
-						loading: false
-					}
-				});
+				this.setState(() => ({
+					error: 'Looks like there was error. Check that both users exist on Github',
+					loading: false
+				}));
 			} else {
-				this.setState(() => {
-					return {
-						error: null,
-						winner: results[0],
-						loser: results[1],
-						loading: false
-					}
-				});
+				this.setState(() => ({
+					error: null,
+					winner: results[0],
+					loser: results[1],
+					loading: false
+				}));
 			}
 		});
 	}
 
 	render() {
-		const error = this.state.error;
-		const winner = this.state.winner;
-		const loser = this.state.loser;
-		const loading = this.state.loading;
+		const { error, winner, loser, loading } = this.state;
 
 		if(loading === true) {
 			return <Loading />
